@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:include filename="inertial_macros.xacro"/>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_robot">
+    <xacro:include filename="inertial_macro.xacro"/>
     <material name="white">
         <color rgba="1 1 1 1"/>
     </material>
@@ -67,7 +67,7 @@
     </joint>
 
 
-    <!-- // Right wheel -->
+    // Right wheel
     <link name="right_wheel">
         <visual>
             <geometry>
@@ -93,7 +93,7 @@
 
     </joint>
 
-    <!-- // caster wheel -->
+    // caster wheel
     <link name="caster_wheel">
         <visual>
             <geometry>
@@ -117,10 +117,4 @@
         <origin xyz="0.24 0 0"/>
     </joint>
 
-
-
-
 </robot>
-
-
-

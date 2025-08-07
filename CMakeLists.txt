@@ -12,7 +12,17 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 install (
-  DIRECTORY launch xacro urdf
+  DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
+  DIRECTORY xacro
   DESTINATION share/${PROJECT_NAME}
 )
 

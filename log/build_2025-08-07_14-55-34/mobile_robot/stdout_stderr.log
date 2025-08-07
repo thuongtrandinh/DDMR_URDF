@@ -1,0 +1,22 @@
+-- Install configuration: ""
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/urdf
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/display.launch.py
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/inertial_macro.xacro
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/robot.xacro
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/package_run_dependencies/mobile_robot
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/parent_prefix_path/mobile_robot
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.sh
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.dsv
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/path.sh
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/path.dsv
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.bash
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.sh
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.zsh
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.dsv
+-- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/package.dsv
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/packages/mobile_robot
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig.cmake
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig-version.cmake
+-- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/package.xml
