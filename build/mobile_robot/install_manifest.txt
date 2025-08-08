@@ -1,6 +1,10 @@
-/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/display.launch.py
-/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/inertial_macro.xacro
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/rviz2.launch.py
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/rsp.launch.py
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/launch_sim.launch.py
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/robot.urdf.xacro
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/inertial_macros.xacro
 /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/robot.xacro
+/home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/gazebo_control.xacro
 /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/package_run_dependencies/mobile_robot
 /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/parent_prefix_path/mobile_robot
 /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.sh

@@ -1,0 +1,44 @@
+[0.061s] Invoking command in '/home/thuong/ros2/src/mobile_robot/build/mobile_robot': CMAKE_PREFIX_PATH=/home/thuong/ros2/install/urdf_tutorial_cpp:/opt/ros/humble:/home/thuong/ros2/install/urdf_tutorial:/home/thuong/ros2/install/mobile_robot:/home/thuong/ros2/install/mobile_dd_robot:/home/thuong/ros2/install/learn_urdf:/home/thuong/ros2/install/learn_URDF:/home/thuong/ros2/src/install/cpp_pubsub:/home/thuong/ros2/src/install/tutorial_interfaces:/home/thuong/ros2/src/install/rviz_plugin_tutorial_msgs:/home/thuong/ros2/src/install/polygon_base:/home/thuong/ros2/src/install/my_package:/home/thuong/ros2/src/install/exercies_rviz:/home/thuong/ros2/src/install/cpp_srvcli:/home/thuong/ros2/src/install/cpp_parameters:/home/thuong/ros2/src/install/action_tutorials_interfaces /usr/bin/cmake --build /home/thuong/ros2/src/mobile_robot/build/mobile_robot -- -j4 -l4
+[0.397s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.037s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.410s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.411s] -- Configured cppcheck include dirs: 
+[1.411s] -- Configured cppcheck exclude dirs and/or files: 
+[1.420s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.435s] -- Added test 'lint_cmake' to check CMake code style
+[1.445s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.504s] -- Added test 'uncrustify' to check C / C++ code style
+[1.505s] -- Configured uncrustify additional arguments: 
+[1.514s] -- Added test 'xmllint' to check XML markup files
+[1.521s] -- Configuring done
+[1.543s] -- Generating done
+[1.551s] -- Build files have been written to: /home/thuong/ros2/src/mobile_robot/build/mobile_robot
+[1.633s] Invoked command in '/home/thuong/ros2/src/mobile_robot/build/mobile_robot' returned '0': CMAKE_PREFIX_PATH=/home/thuong/ros2/install/urdf_tutorial_cpp:/opt/ros/humble:/home/thuong/ros2/install/urdf_tutorial:/home/thuong/ros2/install/mobile_robot:/home/thuong/ros2/install/mobile_dd_robot:/home/thuong/ros2/install/learn_urdf:/home/thuong/ros2/install/learn_URDF:/home/thuong/ros2/src/install/cpp_pubsub:/home/thuong/ros2/src/install/tutorial_interfaces:/home/thuong/ros2/src/install/rviz_plugin_tutorial_msgs:/home/thuong/ros2/src/install/polygon_base:/home/thuong/ros2/src/install/my_package:/home/thuong/ros2/src/install/exercies_rviz:/home/thuong/ros2/src/install/cpp_srvcli:/home/thuong/ros2/src/install/cpp_parameters:/home/thuong/ros2/src/install/action_tutorials_interfaces /usr/bin/cmake --build /home/thuong/ros2/src/mobile_robot/build/mobile_robot -- -j4 -l4
+[1.671s] Invoking command in '/home/thuong/ros2/src/mobile_robot/build/mobile_robot': CMAKE_PREFIX_PATH=/home/thuong/ros2/install/urdf_tutorial_cpp:/opt/ros/humble:/home/thuong/ros2/install/urdf_tutorial:/home/thuong/ros2/install/mobile_robot:/home/thuong/ros2/install/mobile_dd_robot:/home/thuong/ros2/install/learn_urdf:/home/thuong/ros2/install/learn_URDF:/home/thuong/ros2/src/install/cpp_pubsub:/home/thuong/ros2/src/install/tutorial_interfaces:/home/thuong/ros2/src/install/rviz_plugin_tutorial_msgs:/home/thuong/ros2/src/install/polygon_base:/home/thuong/ros2/src/install/my_package:/home/thuong/ros2/src/install/exercies_rviz:/home/thuong/ros2/src/install/cpp_srvcli:/home/thuong/ros2/src/install/cpp_parameters:/home/thuong/ros2/src/install/action_tutorials_interfaces /usr/bin/cmake --install /home/thuong/ros2/src/mobile_robot/build/mobile_robot
+[1.699s] -- Install configuration: ""
+[1.700s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/urdf
+[1.700s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch
+[1.700s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/rviz2.launch.py
+[1.701s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/rsp.launch.py
+[1.702s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/launch/launch_sim.launch.py
+[1.704s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro
+[1.704s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/robot.urdf.xacro
+[1.705s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/inertial_macros.xacro
+[1.706s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/robot.xacro
+[1.707s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/xacro/gazebo_control.xacro
+[1.708s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/package_run_dependencies/mobile_robot
+[1.708s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/parent_prefix_path/mobile_robot
+[1.709s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.sh
+[1.710s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/ament_prefix_path.dsv
+[1.710s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/path.sh
+[1.711s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/environment/path.dsv
+[1.711s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.bash
+[1.711s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.sh
+[1.712s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.zsh
+[1.713s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/local_setup.dsv
+[1.713s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/package.dsv
+[1.714s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/ament_index/resource_index/packages/mobile_robot
+[1.714s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig.cmake
+[1.715s] -- Up-to-date: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/cmake/mobile_robotConfig-version.cmake
+[1.715s] -- Installing: /home/thuong/ros2/src/mobile_robot/install/mobile_robot/share/mobile_robot/package.xml
+[1.723s] Invoked command in '/home/thuong/ros2/src/mobile_robot/build/mobile_robot' returned '0': CMAKE_PREFIX_PATH=/home/thuong/ros2/install/urdf_tutorial_cpp:/opt/ros/humble:/home/thuong/ros2/install/urdf_tutorial:/home/thuong/ros2/install/mobile_robot:/home/thuong/ros2/install/mobile_dd_robot:/home/thuong/ros2/install/learn_urdf:/home/thuong/ros2/install/learn_URDF:/home/thuong/ros2/src/install/cpp_pubsub:/home/thuong/ros2/src/install/tutorial_interfaces:/home/thuong/ros2/src/install/rviz_plugin_tutorial_msgs:/home/thuong/ros2/src/install/polygon_base:/home/thuong/ros2/src/install/my_package:/home/thuong/ros2/src/install/exercies_rviz:/home/thuong/ros2/src/install/cpp_srvcli:/home/thuong/ros2/src/install/cpp_parameters:/home/thuong/ros2/src/install/action_tutorials_interfaces /usr/bin/cmake --install /home/thuong/ros2/src/mobile_robot/build/mobile_robot
