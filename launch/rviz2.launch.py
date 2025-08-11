@@ -10,7 +10,7 @@ def generate_launch_description():
         PathJoinSubstitution([
             FindPackageShare('mobile_robot'),
             'xacro',
-            'robot.xacro'
+            'robot.urdf.xacro'
         ])
     ])
 

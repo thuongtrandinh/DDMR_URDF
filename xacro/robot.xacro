@@ -116,7 +116,11 @@
         <child link="caster_wheel"/>
         <origin xyz="0.24 0 0"/>
     </joint>
-
+    <gazebo reference="caster_wheel">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
 
 
 
