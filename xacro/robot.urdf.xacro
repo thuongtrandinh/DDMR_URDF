@@ -3,5 +3,6 @@
   
     <xacro:include filename="robot.xacro"/>
     <xacro:include filename="gazebo_control.xacro"/>
-
+    <xacro:include filename="ros2_control.xacro"/>
+    
 </robot>
