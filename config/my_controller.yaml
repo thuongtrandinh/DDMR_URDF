@@ -1,2 +1,32 @@
 controller_manager:
-  ros_
+  ros__parameters:
+    update_rate: 200          # tăng tần số controller cho mượt và hết warning
+    use_sim_time: true
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    diff_cont:
+      type: diff_drive_controller/DiffDriveController
+
+joint_broad:
+  ros__parameters: {}
+
+diff_cont:
+  ros__parameters:
+    # Tên joint phải trùng URDF
+    left_wheel_names:  ['left_wheel_joint']
+    right_wheel_names: ['right_wheel_joint']
+
+    # Động học - nhớ chỉnh đúng theo model
+    wheel_separation: 0.35
+    wheel_radius: 0.05
+
+    # I/O
+    use_stamped_vel: false              # => topic: /diff_cont/cmd_vel_unstamped
+    publish_rate: 50.0
+    cmd_vel_timeout: 0.5                # nếu tần số lệnh thấp hơn ~2 Hz robot sẽ dừng
+
+    # Frame/TF & odom
+    base_frame_id: base_link
+    odom_frame_id: odom
+    enable_odom_tf: true

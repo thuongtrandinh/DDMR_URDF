@@ -1,2 +1,1 @@
-source;share/mobile_robot/environment/ament_prefix_path.sh
-source;share/mobile_robot/environment/path.sh
+/home/thuong/ros2/src/mobile_robot/build/mobile_robot/ament_cmake_environment_hooks/local_setup.dsv

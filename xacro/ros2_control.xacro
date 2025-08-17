@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <ros2_control name="Gazebosystem" type="system">
+    <ros2_control name="GazeboSystem" type="system">
         <hardware>
             <plugin>gz_ros2_control/GazeboSystem</plugin>
         </hardware>
@@ -23,13 +23,14 @@
             <state_interface name="position"/>
         </joint>
     </ros2_control>
-    
+
+    <!-- ...existing code... -->
     <gazebo>
-        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-            <parameters>$(find gz_ros2_control_demos)/config/cart_controller.yaml</parameters>
+        <plugin filename="libgz_ros2_control-system.so"
+                name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>$(find mobile_robot)/config/my_controller.yaml</parameters>
             <controller_manager_name>controller_manager</controller_manager_name>
         </plugin>
     </gazebo>
-
-
+<!-- ...existing code... -->
 </robot>
