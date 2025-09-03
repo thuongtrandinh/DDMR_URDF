@@ -53,21 +53,18 @@ def generate_launch_description():
         arguments=["diff_cont"],
     )
 
+    
+    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
+    # Sử dụng world mặc định hoặc chỉ khởi động Gazebo rỗng
     gazebo_launch = IncludeLaunchDescription(
-    PathJoinSubstitution([
-        FindPackageShare('ros_gz_sim'),
-        'launch',
-        'gz_sim.launch.py'
-    ]),
-    launch_arguments={
-        # KHÔNG để --force-version ở đây nữa
-        'gz_args': '-r empty.sdf',
-        # Ép dùng Harmonic qua tham số riêng của launch file
-        'gz_version': '8',
-        'gui': LaunchConfiguration('gui'),
-        'on_exit_shutdown': 'true'
-    }.items()
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
+        launch_arguments={
+            'gz_args': '-r empty.sdf'
+        }.items(),
     )
+
+
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -89,7 +86,6 @@ def generate_launch_description():
 
 
 
-
     # Launch them all!
     return LaunchDescription([
         gui_arg,
@@ -99,4 +95,5 @@ def generate_launch_description():
         spawn_entity,
         load_joint_state_broadcaster,
         load_diff_drive_controller,
+
     ])

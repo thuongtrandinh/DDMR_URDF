@@ -7,10 +7,25 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(control_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+add_executable(simple_controller src/simple_controller.cpp)
+ament_target_dependencies(simple_controller rclcpp geometry_msgs sensor_msgs ${Eigen_LIBRARIES})
+
+include_directories(
+  include
+  ${EIGEN3_INCLUDE_DIRS}
+)
 
 install (
   DIRECTORY launch
@@ -24,6 +39,16 @@ install (
 
 install (
   DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
+  DIRECTORY src
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
+  DIRECTORY include
   DESTINATION share/${PROJECT_NAME}
 )
 

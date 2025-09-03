@@ -3,8 +3,9 @@
 
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
-            <plugin>gz_ros2_control/GazeboSystem</plugin>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
         </hardware>
+
         <joint name="left_wheel_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
@@ -26,11 +27,10 @@
 
     <!-- ...existing code... -->
     <gazebo>
-        <plugin filename="libgz_ros2_control-system.so"
-                name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
             <parameters>$(find mobile_robot)/config/my_controller.yaml</parameters>
-            <controller_manager_name>controller_manager</controller_manager_name>
         </plugin>
     </gazebo>
+
 <!-- ...existing code... -->
 </robot>
