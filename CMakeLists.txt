@@ -28,6 +28,11 @@ include_directories(
 )
 
 install (
+  DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
   DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )

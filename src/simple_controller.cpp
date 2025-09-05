@@ -20,7 +20,7 @@ SimpleController::SimpleController(const std::string & name)
     prev_time_ = get_clock()->now();
 
     wheel_cmd_pub_ = create_publisher<std_msgs::msg::Float64MultiArray>("/simple_velocity_controller/command", 10);
-    vel_sub_ = create_subscription<geometry_msgs::msg::TwistStamped>("/bumpedrobot_controller/cmd_vel", 10,
+    vel_sub_ = create_subscription<geometry_msgs::msg::TwistStamped>("/cmd_vel", 10,
         std::bind(&SimpleController::velCallback, this, _1));
     speed_conversion_ << wheel_radius_/2, wheel_radius_/2, wheel_radius_/wheel_separation_, -wheel_radius_/wheel_separation_;
     joint_sub_ = create_subscription<sensor_msgs::msg::JointState>("/joint_states", 10, std::bind(&SimpleController::jointCallback, this, _1));
@@ -36,8 +36,9 @@ void SimpleController::velCallback(const geometry_msgs::msg::TwistStamped & msg)
 
     Eigen::Vector2d wheel_speed = speed_conversion_.inverse() *robot_speed;
     std_msgs::msg::Float64MultiArray wheel_speed_msg;
-    wheel_speed_msg.data.push_back(wheel_speed.coeff(1));
-    wheel_speed_msg.data.push_back(wheel_speed.coeff(0));
+    wheel_speed_msg.data.push_back(wheel_speed.coeff(1)); // banh trai truoc
+    wheel_speed_msg.data.push_back(wheel_speed.coeff(0)); // banh phai sau
+    // => wheel_speed_msg.data = [left_wheel_speed, right_wheel_speed]
     wheel_cmd_pub_->publish(wheel_speed_msg);
 
 }
