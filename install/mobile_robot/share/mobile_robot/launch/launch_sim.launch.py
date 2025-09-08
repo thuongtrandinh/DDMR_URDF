@@ -1,1 +1,0 @@
-/home/thuong/ros2/src/mobile_robot/launch/launch_sim.launch.py

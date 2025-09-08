@@ -1,9 +1,0 @@
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/uninstall.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/mobile_robot_uninstall.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/test.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/edit_cache.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/rebuild_cache.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/list_install_components.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/install.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/install/local.dir
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/CMakeFiles/install/strip.dir

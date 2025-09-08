@@ -1,1 +1,0 @@
-/home/thuong/ros2/src/mobile_robot/build/mobile_robot/ament_cmake_core/mobile_robotConfig.cmake
