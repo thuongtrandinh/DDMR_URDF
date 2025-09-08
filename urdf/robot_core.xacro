@@ -121,6 +121,7 @@
     </joint>
 
     <link name="caster_wheel">
+    
         <visual>
             <geometry>
                 <cylinder radius="0.05" length="0.03"/>
