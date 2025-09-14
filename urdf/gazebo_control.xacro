@@ -1,84 +1,75 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
-        </plugin>
-    </gazebo>
 
-    <gazebo>
-        <!-- plugin de dieu khien robot tren gazebo -->
-        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-            
-            
-            <!-- Wheel Information -->
-            <leftJoint>left_wheel_joint</leftJoint>
-            <rightJoint>right_wheel_joint</rightJoint>
-            <wheelSeparation>0.322</wheelSeparation>   <!--khoang cach 2 banh xe-->
-            <wheelDiameter>0.1</wheelDiameter>        <!--duong kinh banh xe-->
+    <xacro:unless value="$(arg sim_mode)">
+        <!-- ros2_control using gazebo_ros2_control/GazeboSimSystem -->
+        <ros2_control name="GazeboSimSystem" type="system">
+            <hardware>
+                <plugin>gazebo_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+            <joint name="left_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-10</param>
+                    <param name="max">10</param>
+                </command_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="position"/>
+            </joint>
+            <joint name="right_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-10</param>
+                    <param name="max">10</param>
+                </command_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="position"/>
+            </joint>
+        </ros2_control>
 
-
-            <!-- limits -->
-            <!-- <wheelTorque>200</wheelTorque>       
-            <wheelAcceleration>10.0</wheelAcceleration> -->
-
-            
-            <!-- Output -->
-            <odometryTopic>odom</odometryTopic>
-            <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>base_footprint</robotBaseFrame>
-
-            <publishOdom>true</publishOdom>
-            <publishOdomTF>true</publishOdomTF>
-            <publishWheelTF>false</publishWheelTF>
-            <publishWheelJointState>false</publishWheelJointState>
-
-            <!-- phan bo sung -->
-            <!-- <rosDebugLevel>na</rosDebugLevel> -->
-            <commandTopic>cmd_vel</commandTopic>
-            <updateRate>30</updateRate>
-            <odometrySource>1</odometrySource>
-            <!-- <publishTf>1</publishTf> -->
-
-        </plugin>
-
-    </gazebo>
-
-    <!-- plugin lidar -->
-
-    <!-- <gazebo reference="base_scan"> -->
-    <gazebo reference="laser">
-        <sensor type="ray" name="rplidar">
-            <pose>0 0 0 0 0 0</pose>
-            <visualize>false</visualize>
-            <update_rate>40</update_rate>
-            <ray>
-                <scan>
-                    <horizontal>
-                        <samples>720</samples>
-                        <resolution>1</resolution>
-                        <min_angle>-2.87979</min_angle> 
-                        <max_angle>2.87979</max_angle>
-                    </horizontal>
-                </scan>
-                <range>
-                    <min>0.10</min>
-                    <max>20.0</max>
-                    <resolution>0.01</resolution>
-                </range>
-                <noise>
-                    <type>gaussian</type>
-                    <mean>0.0</mean>
-                    <stddev>0.01</stddev>
-                </noise>
-            </ray>
-            <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-                <topicName>scan</topicName>
-                <!-- <frameName>base_scan</frameName> -->
-                <frameName>laser</frameName>
+        <!-- Gazebo plugin for ros2_control -->
+        <gazebo>
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+                <robot_param>robot_description</robot_param>
+                <robot_param_node>robot_state_publisher</robot_param_node>
+                <parameters>$(find mobile_robot)/config/my_controller.yaml</parameters>
             </plugin>
-        </sensor>
-    </gazebo>
+        </gazebo>
+
+    </xacro:unless>
+
+    <xacro:if value="$(arg sim_mode)">
+        <!-- Alternative for Gazebo Fortress -->
+        <ros2_control name="GazeboSimSystem" type="system">
+            <hardware>
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </hardware>
+            <joint name="left_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-10</param>
+                    <param name="max">10</param>
+                </command_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="position"/>
+            </joint>
+            <joint name="right_wheel_joint">
+                <command_interface name="velocity">
+                    <param name="min">-10</param>
+                    <param name="max">10</param>
+                </command_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="position"/>
+            </joint>
+        </ros2_control>
+
+        <!-- Gazebo Fortress plugin -->
+        <gazebo>
+            <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                <parameters>$(find mobile_robot)/config/my_controller.yaml</parameters>
+                <ros>
+                    <remapping>/tf:=tf</remapping>
+                    <remapping>/tf_static:=tf_static</remapping>
+                </ros>
+            </plugin>
+        </gazebo>
+    </xacro:if>
 
 </robot>

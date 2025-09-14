@@ -20,6 +20,11 @@ find_package(Eigen3 REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 add_executable(simple_controller src/simple_controller.cpp)
+
+add_executable(twist_relay src/twist_relay.cpp)
+
+ament_target_dependencies(twist_relay rclcpp geometry_msgs)
+
 ament_target_dependencies(simple_controller rclcpp geometry_msgs sensor_msgs ${Eigen_LIBRARIES})
 
 include_directories(
@@ -54,6 +59,10 @@ install (
 
 install (
   DIRECTORY include
+  DESTINATION share/${PROJECT_NAME}
+)
+install (
+  DIRECTORY rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

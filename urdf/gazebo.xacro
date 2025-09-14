@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<robot name="diff_drive" xmlns:xacro="http://ros.org/wiki/xacro">
+<!--define robot gazebo-->
+        <gazebo reference="chassis">
+        <material>Gazebo/Aluminium</material>
+    </gazebo>
+
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+        <gazebo reference="above_base_caster">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <gazebo reference="right_base_caster">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+        <gazebo reference="left_base_caster">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+        <gazebo reference="back_base_caster">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+        <gazebo reference="caster_wheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+        <gazebo reference="face_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+        <gazebo reference="laser">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+<!--robot control-->
+<gazebo>
+  <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100</updateRate>
+    <leftJoint>left_wheel_joint</leftJoint>
+    <rightJoint>right_wheel_joint</rightJoint>
+    <wheelSeparation>0.26</wheelSeparation>
+    <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+    <torque>20</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>my_robot/odom</odometryTopic>
+    <odometryFrame>map</odometryFrame>
+    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <legacyMode>false</legacyMode>
+
+    <rosDebugLevel>Debug</rosDebugLevel>
+    <publishWheelTF>true</publishWheelTF>
+    <publishWheelJointState>true</publishWheelJointState>
+        <wheelAcceleration>5</wheelAcceleration>
+    <wheelTorque>20</wheelTorque>
+    <publishTf>1</publishTf>
+    <odometrySource>encoder</odometrySource>
+  </plugin>
+</gazebo>
+  <!-- Caster wheel -->
+  <gazebo reference="caster_wheel">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+    <!-- LIDAR -->
+  <gazebo reference="laser">
+    <sensor name="laser" type="ray">
+        <pose> 0 0 -0.049 0 0 0 </pose>
+        <visualize>true</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>720</samples>
+                    <min_angle>-3.14</min_angle>
+                    <max_angle>3.14</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.1</min>
+                <max>12</max>
+            </range>
+        </ray>
+        <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+                <argument>~/out:=scan</argument>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>lidar_link</frame_name>
+        </plugin>
+    </sensor>
+</gazebo>
+</robot>
