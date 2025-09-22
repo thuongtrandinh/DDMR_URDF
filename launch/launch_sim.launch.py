@@ -1,4 +1,3 @@
-
 import os
 import xacro
 from ament_index_python.packages import get_package_share_directory
@@ -63,6 +62,7 @@ def launch_setup(context, *args, **kwargs):
             'publish_frequency': 50.0,
             # 🔧 CRITICAL: QoS override for RViz2 compatibility
             'qos_overrides./robot_description.publisher.durability': 'transient_local',
+            'frame_prefix': '',  # Prevent namespace prefixing
         }],
         output='screen'
     )
@@ -105,6 +105,15 @@ def launch_setup(context, *args, **kwargs):
         output='screen'
     )
 
+    # Scan republisher - Fix frame_id issue
+    scan_republisher = Node(
+        package='mobile_robot',
+        executable='scan_repub.py',
+        name='scan_republisher',
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+
     # Gazebo launch - IMPORTANT: Force simulation time and sync
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -128,6 +137,7 @@ def launch_setup(context, *args, **kwargs):
         robot_state_publisher,
         rviz,
         gz_spawn_entity,
+        scan_republisher,  # Add scan republisher
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,

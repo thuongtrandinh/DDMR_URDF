@@ -70,6 +70,16 @@ install (
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Install executables
+install(TARGETS simple_controller twist_relay
+  DESTINATION lib/${PROJECT_NAME})
+
+# Install Python scripts
+install(PROGRAMS
+  src/scan_repub.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
