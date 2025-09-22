@@ -65,6 +65,10 @@ install (
   DIRECTORY rviz
   DESTINATION share/${PROJECT_NAME}
 )
+install (
+  DIRECTORY worlds
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

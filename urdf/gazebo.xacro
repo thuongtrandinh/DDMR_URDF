@@ -42,27 +42,19 @@
     </gazebo>
 <!--robot control-->
 <gazebo>
-  <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
+  <plugin filename="ignition-gazebo-diff-drive-system"
+        name="ignition::gazebo::systems::DiffDrive">
     <alwaysOn>true</alwaysOn>
     <updateRate>100</updateRate>
-    <leftJoint>left_wheel_joint</leftJoint>
-    <rightJoint>right_wheel_joint</rightJoint>
-    <wheelSeparation>0.26</wheelSeparation>
-    <wheelDiameter>${2*wheel_radius}</wheelDiameter>
-    <torque>20</torque>
-    <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>my_robot/odom</odometryTopic>
-    <odometryFrame>map</odometryFrame>
-    <robotBaseFrame>base_footprint</robotBaseFrame>
-    <legacyMode>false</legacyMode>
-
-    <rosDebugLevel>Debug</rosDebugLevel>
-    <publishWheelTF>true</publishWheelTF>
-    <publishWheelJointState>true</publishWheelJointState>
-        <wheelAcceleration>5</wheelAcceleration>
-    <wheelTorque>20</wheelTorque>
-    <publishTf>1</publishTf>
-    <odometrySource>encoder</odometrySource>
+    <left_joint>left_wheel_joint</left_joint>
+    <right_joint>right_wheel_joint</right_joint>
+    <wheel_separation>0.46</wheel_separation>
+    <wheel_radius>0.05</wheel_radius>
+    <max_wheel_torque>20</max_wheel_torque>
+    <command_topic>cmd_vel</command_topic>
+    <odometry_topic>odom</odometry_topic>
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>base_footprint</robot_base_frame>
   </plugin>
 </gazebo>
   <!-- Caster wheel -->
@@ -76,32 +68,41 @@
     <maxVel>1.0</maxVel>
   </gazebo>
 
-    <!-- LIDAR -->
-  <gazebo reference="laser">
-    <sensor name="laser" type="ray">
-        <pose> 0 0 -0.049 0 0 0 </pose>
-        <visualize>true</visualize>
-        <update_rate>10</update_rate>
-        <ray>
-            <scan>
-                <horizontal>
-                    <samples>720</samples>
-                    <min_angle>-3.14</min_angle>
-                    <max_angle>3.14</max_angle>
-                </horizontal>
-            </scan>
-            <range>
-                <min>0.1</min>
-                <max>12</max>
-            </range>
-        </ray>
-        <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
-            <ros>
-                <argument>~/out:=scan</argument>
-            </ros>
-            <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>lidar_link</frame_name>
-        </plugin>
-    </sensor>
-</gazebo>
+    <!-- LIDAR sensor cho Gazebo Fortress -->
+    <gazebo reference="laser">
+        <sensor name="laser" type="gpu_ray">
+            <frame_id>laser</frame_id>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>5</update_rate>
+            <topic>scan</topic>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-3.14159</min_angle>
+                        <max_angle>3.14159</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.12</min>
+                    <max>12.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+        </sensor>
+    </gazebo>
+    <gazebo>
+    <plugin filename="ignition-gazebo-sensors-system"
+            name="ignition::gazebo::systems::Sensors">
+        <render_engine>ogre2</render_engine>
+    </plugin>
+    </gazebo>
+
 </robot>

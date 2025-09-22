@@ -3,4 +3,5 @@
     
     <xacro:include filename="$(find mobile_robot)/urdf/new_robot_2.xacro"/>
     <xacro:include filename="$(find mobile_robot)/urdf/gazebo_control.xacro"/>
+    <xacro:include filename="$(find mobile_robot)/urdf/gazebo.xacro"/>
 </robot>

@@ -9,6 +9,10 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
+import os
+import xacro
+import os
+import xacro
 
 
 def launch_setup(context, *args, **kwargs):
@@ -16,9 +20,18 @@ def launch_setup(context, *args, **kwargs):
     use_sim_time_str = context.launch_configurations['use_sim_time']
     use_sim_time = use_sim_time_str.lower() == 'true'  # Convert string to boolean
     init_height = context.launch_configurations['height']
+    world_name = context.launch_configurations['world']
     
     pkg_path = os.path.join(get_package_share_directory(package_name))
     xacro_file = os.path.join(pkg_path, 'urdf', 'mobile_robot.urdf.xacro')
+    
+    # ✅ SỬA: Sử dụng worlds trong package
+    world_file = os.path.join(pkg_path, 'worlds', world_name)
+    
+    # 💡 Debug: Print paths for verification
+    print(f"✅ Package path: {pkg_path}")
+    print(f"✅ World file: {world_file}")
+    print(f"✅ World file exists: {os.path.exists(world_file)}")
     
     # 🔥 PROPER XACRO RENDERING: Convert XACRO to URDF XML
     robot_description = xacro.process_file(xacro_file, mappings={'sim_mode': 'true'}).toxml()
@@ -85,7 +98,8 @@ def launch_setup(context, *args, **kwargs):
         arguments=[
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             '/diff_cont/cmd_vel_unstamped@geometry_msgs/msg/Twist[gz.msgs.Twist',
-            '/cmd_vel@geometry_msgs/msg/Twist[gz.msgs.Twist',
+            '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
+            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
         ],
         parameters=[{'use_sim_time': use_sim_time}],
         output='screen'
@@ -101,7 +115,7 @@ def launch_setup(context, *args, **kwargs):
             ])
         ]),
         launch_arguments=[
-            ('gz_args', ['-r -v 4 empty.sdf']),
+            ('gz_args', ['-r -v 4 ' + world_file]),
             ('use_sim_time', 'true'),
             ('sync', 'true'),  # Force time synchronization
         ]
@@ -148,9 +162,16 @@ def generate_launch_description():
         description='Start Gazebo GUI'
     )
 
+    world_arg = DeclareLaunchArgument(
+        'world',
+        default_value='simple_world.sdf',
+        description='World file name (in worlds folder)'
+    )
+
     return LaunchDescription([
         use_sim_time_arg,
         height_arg,
         gui_arg,
+        world_arg,
         OpaqueFunction(function=launch_setup),
     ])
