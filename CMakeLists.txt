@@ -33,7 +33,12 @@ include_directories(
 )
 
 install (
-  DIRECTORY urdf
+  DIRECTORY urdf 
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install (
+  DIRECTORY worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
