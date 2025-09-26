@@ -148,9 +148,12 @@ def generate_launch_description():
         description='Start Gazebo GUI'
     )
 
+
+
     return LaunchDescription([
         use_sim_time_arg,
         height_arg,
         gui_arg,
         OpaqueFunction(function=launch_setup),
     ])
+
